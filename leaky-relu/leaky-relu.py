@@ -6,6 +6,4 @@ def leaky_relu(x, alpha=0.01):
     elif isinstance(x, list):
         x = np.array(x)
     return np.where(x < 0, alpha*x, x)
-    """
-    Vectorized Leaky ReLU implementation.
-    """
+
