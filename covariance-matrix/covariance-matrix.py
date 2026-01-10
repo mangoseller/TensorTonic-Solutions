@@ -1,8 +1,7 @@
 import numpy as np
 
 def covariance_matrix(X):
-    X = np.asarray(X, dtype=np.float64)
-    if X.shape[0] < 2 or X.ndim != 2:
-        return None
-    X -= np.mean(X, axis=0)
-    return np.asarray((X.T @ X) / (X.shape[0] - 1))
+    return None if ((X_a := np.asarray(X, dtype=np.float64)).shape[0] < 2 or X_a.ndim != 2) else \
+    np.atleast_1d(((X_cent := X_a - np.mean(X_a, axis=0)).T @ X_cent) / (X_a.shape[0] - 1))
+
+
